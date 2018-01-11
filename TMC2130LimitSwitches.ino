@@ -89,7 +89,9 @@ void initStepper() {
   #endif
 
   stepper.begin(); // Initialize pin modes and SPI interface
-  stepper.setCurrent(600, 0.11, 0.5); // 600mA, 0.11ohm ref, 50% idle current
+  stepper.external_ref(true); // Use the external reference voltage to scale current
+  stepper.run_current(31); // Set internal run current scaling to maximum
+  stepper.hold_current(7); // Set internal hold (idle) current scaling to 25%
   stepper.shaft_dir(1); // Reverse default direction
   stepper.microsteps(16); // One step pulse is 1/16 of full step
   stepper.interpolate(true); // Turn on sub-step interpolation
