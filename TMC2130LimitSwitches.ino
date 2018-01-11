@@ -28,7 +28,7 @@ bool isAtBottom;
 TMC2130Stepper stepper = TMC2130Stepper(UNUSED_PIN, UNUSED_PIN, UNUSED_PIN, CS_PIN);
 
 void setup() {
-  pinMode(DIR_PIN, INPUT);
+  pinMode(DIR_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(DIR_PIN), dirChanged, CHANGE);
 
   pinMode(STALL_PIN, INPUT_PULLUP);
